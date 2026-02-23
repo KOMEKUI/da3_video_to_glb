@@ -39,6 +39,7 @@ class Da3PyTorchInferenceAdapter(Da3InferencePort):
             [str(p) for p in image_paths],
             export_dir=str(output_dir),
             export_format="glb",
+            show_cameras=False,
         )
 
         progress_reporter.report_progress(len(image_paths), len(image_paths), "DA3推論完了・GLB出力完了")

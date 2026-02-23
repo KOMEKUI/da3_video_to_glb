@@ -82,7 +82,7 @@ class PostgresJobRepositoryAdapter(JobRepositoryPort):
                         j.id::text,
                         j.input_object_key,
                         j.output_prefix,
-                        COALESCE((j.params_json->>'fps')::double precision, 2.0) AS fps,
+                        COALESCE((j.params_json->>'fps')::double precision, 5.0) AS fps,
                         COALESCE(j.params_json->>'modelId', 'depth-anything/da3nested-giant-large') AS model_id
                     FROM jobs j
                     WHERE j.status = 'queued'
