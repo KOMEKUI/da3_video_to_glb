@@ -1,0 +1,18 @@
+$env:POSTGRES_DSN = "host=160.251.139.18 port=15432 dbname=app_db user=app_user password=pass1542"
+$env:MINIO_ENDPOINT = "160.251.139.18:9000"
+$env:MINIO_ACCESS_KEY = "minioadmin"
+$env:MINIO_SECRET_KEY = "change-this-strong-password"
+$env:MINIO_SECURE = "false"
+
+$env:JOB_INPUT_BUCKET = "inputs"
+$env:JOB_OUTPUT_BUCKET = "outputs"
+
+$env:WORKER_KEY = $env:COMPUTERNAME
+$env:WORKER_DISPLAY_NAME = "DA3 Worker - " + $env:COMPUTERNAME
+$env:WORKER_TAGS_JSON = '{"gpu":"RTX3060Laptop","runtime":"pytorch"}'
+$env:WORKER_CAPACITY_JSON = '{"gpus":1}'
+
+$env:IDLE_SLEEP_SEC = "2"
+$env:KEEP_FRAMES_FOR_DEBUG = "true"
+
+python -m app.worker_main
